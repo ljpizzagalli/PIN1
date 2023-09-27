@@ -6,7 +6,7 @@ pipeline {
   }
 
   environment {
-    REGISTRY_URL = "127.0.0.1:8081/tiburones/testapp"
+    REGISTRY_URL = "127.0.0.1:5000/tiburones/testapp"
   }
   stages {
     stage('Building image') {
@@ -24,7 +24,7 @@ pipeline {
     stage('Deploy Image') {
       steps{
         sh '''
-        docker login 127.0.0.1:8081 -u admin -p admin
+        docker login 127.0.0.1:5000 -u admin -p admin
         docker tag testapp ${REGISTRY_URL}
         docker push ${REGISTRY_URL}   
         '''

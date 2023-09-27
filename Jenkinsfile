@@ -32,7 +32,7 @@ pipeline {
     }
     stage('Vulnerability Scan - Docker ') {
       steps {
-        sh "docker run  -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image --severity=critical ${REGISTRY_URL}"
+        sh "docker run  -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image --severity=CRITICAL ${REGISTRY_URL}"
       }
     }
   }

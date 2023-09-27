@@ -24,7 +24,7 @@ pipeline {
     stage('Deploy Image') {
       steps{
         sh '''
-        docker login 127.0.0.1:8081 -u admin -p admin
+        docker login 127.0.0.1:8081 -u admin -p admin --password-stdin
         docker tag testapp ${REGISTRY_URL}
         docker push ${REGISTRY_URL}   
         '''
